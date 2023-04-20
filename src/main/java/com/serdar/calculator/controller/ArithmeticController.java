@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "api/v1/ArithmeticOperations")
 public class ArithmeticController {
 
-    @PostMapping
+    @PostMapping(path = "sum")
     public String sumNumbers() {
         
         return BodyResponses.ADDITION;
     }
 
-    @PostMapping
+    @PostMapping(path = "subtract")
     public String subtractNumbers() {
         
         return BodyResponses.SUBTRACTION;
