@@ -29,8 +29,8 @@ jobs:
       - name: Save Jar file
         uses: actions/upload-artifact@v3
         with:
-          name: demo-0.0.1-SNAPSHOT
-          path: target/demo-0.0.1-SNAPSHOT.jar
+          name: calculator-0.0.1-SNAPSHOT
+          path: target/calculator-0.0.1-SNAPSHOT.jar
           retention-days: 1
       - name: Generate report file
         run: ./calculator prepare-report
@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: report-file
-          path: dist/demo-report.tar.gz
+          path: dist/calculator-report.tar.gz
           retention-days: 1
       - name: Generate coverage report
         run: ./calculator test-coverage-report
