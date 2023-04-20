@@ -25,7 +25,7 @@ jobs:
       - name: Run unit tests
         run: mvn test
       - name: Build Jar file
-        run: ./project-dev build-jar
+        run: ./calculator build-jar
       - name: Save Jar file
         uses: actions/upload-artifact@v3
         with:
@@ -33,7 +33,7 @@ jobs:
           path: target/demo-0.0.1-SNAPSHOT.jar
           retention-days: 1
       - name: Generate report file
-        run: ./project-dev prepare-report
+        run: ./calculator prepare-report
       - name: Save generated report file
         uses: actions/upload-artifact@v3
         with:
@@ -41,7 +41,7 @@ jobs:
           path: dist/demo-report.tar.gz
           retention-days: 1
       - name: Generate coverage report
-        run: ./project-dev test-coverage-report
+        run: ./calculator test-coverage-report
       - name: Save coverage report
         uses: actions/upload-artifact@v3
         with:
