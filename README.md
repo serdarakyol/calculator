@@ -31,3 +31,6 @@ Usage: ./calculator <command>
         Prepares the report to send the developer for debugging
 ```
  That tool helps to developers to run the application without any problem.
+
+ # Extra
+ You can find JAR file, report file and unit test coverage file in [here](https://github.com/serdarakyol/calculator/actions/runs/4753422158). It can stay there max 1 day. If you would like to generate these, you can directly run `calculator` helper script.
