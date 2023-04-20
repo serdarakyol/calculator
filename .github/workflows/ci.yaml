@@ -24,3 +24,27 @@ jobs:
         run: mvn -B package --file pom.xml
       - name: Run unit tests
         run: mvn test
+      - name: Build Jar file
+        run: ./calculator build-jar
+      - name: Save Jar file
+        uses: actions/upload-artifact@v3
+        with:
+          name: demo-0.0.1-SNAPSHOT
+          path: target/demo-0.0.1-SNAPSHOT.jar
+          retention-days: 1
+      - name: Generate report file
+        run: ./calculator prepare-report
+      - name: Save generated report file
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-file
+          path: dist/demo-report.tar.gz
+          retention-days: 1
+      - name: Generate coverage report
+        run: ./calculator test-coverage-report
+      - name: Save coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-test-coverage-report
+          path: dist/unit-test-coverage.tar.gz
+          retention-days: 1
