@@ -20,7 +20,7 @@ public class ArithmeticController {
 
     public final ArithmeticServiceImpl arithmeticServiceImpl;
 
-    @PostMapping(path = "sum")
+    @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public BigDecimal summing(@RequestBody CustomRequest customRequest) {
         return arithmeticServiceImpl.calculate(customRequest);
