@@ -13,4 +13,21 @@ There is no security for now. Therefore, after run `./calculator code-run`, you 
 ```
 
 ## Requirements
-Java 17 and Spring boot 3x
+Only docker will be enought to run that application.
+
+# calculator binary file example
+```bash
+Usage: ./calculator <command>
+<command>:
+    help
+        Display this help message.
+    build-jar
+        Build jar file
+    code-run
+        Runs containerized app
+    test-coverage-report
+        Shows unit test coverage reports
+    prepare-report
+        Prepares the report to send the developer for debugging
+```
+ That tool helps to developers to run the application without any problem.
