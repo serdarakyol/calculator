@@ -1,18 +1,18 @@
 package com.serdar.calculator.service;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.serdar.calculator.entity.CustomRequest;
+import com.serdar.calculator.exception.BadRequestException;
 import com.serdar.calculator.utils.Utils;
 
 @Service
 public class ArithmeticServiceImpl implements ArithmeticService {
 
-    private final List<Character> operations = Arrays.asList(new Character[]{'+', '-'});
+    private final String notValidOperationMsg = "Operation is not valid. Accepted operations are + and -";
+    private final String notNumericOrValid = "The numbers are not numeric or not in format. Expected format 5.1234 or 5";
 
     @Override
     public BigDecimal calculate(CustomRequest customRequest) {
@@ -20,12 +20,11 @@ public class ArithmeticServiceImpl implements ArithmeticService {
         String secondNumber = customRequest.secondNumber;
         Character operation = customRequest.operation;
 
-        if (!operations.contains(operation)) {
-            // TODO: Return bad request
+        // check if values are digit
+        if (!Utils.isNumericValue(firstNumber) || !Utils.isNumericValue(secondNumber)) {
+            throw new BadRequestException(notNumericOrValid);
         }
-        if (!Utils.isNumericValue(firstNumber)) {
-            // TODO: Return bad request
-        }
+        // get values
         BigDecimal fNumber = BigDecimal.valueOf(Double.valueOf(firstNumber));
         BigDecimal sNumber = BigDecimal.valueOf(Double.valueOf(secondNumber));
         
@@ -34,11 +33,8 @@ public class ArithmeticServiceImpl implements ArithmeticService {
                 return fNumber.add(sNumber);
             case '-':
                 return fNumber.subtract(sNumber);
-
             default:
-                // TODO: BAD request
-                break;
+                throw new BadRequestException(notValidOperationMsg);
         }
-        return null;
     }
 }
