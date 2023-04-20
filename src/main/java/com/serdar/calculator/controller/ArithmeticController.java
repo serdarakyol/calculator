@@ -22,7 +22,7 @@ public class ArithmeticController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public BigDecimal summing(@RequestBody CustomRequest customRequest) {
+    public BigDecimal process(@RequestBody CustomRequest customRequest) {
         return arithmeticServiceImpl.calculate(customRequest);
     }
 }
