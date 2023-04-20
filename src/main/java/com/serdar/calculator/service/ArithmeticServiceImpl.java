@@ -8,7 +8,10 @@ import com.serdar.calculator.entity.CustomRequest;
 import com.serdar.calculator.exception.BadRequestException;
 import com.serdar.calculator.utils.Utils;
 
+import lombok.extern.log4j.Log4j2;
+
 @Service
+@Log4j2
 public class ArithmeticServiceImpl implements ArithmeticService {
 
     private final String notValidOperationMsg = "Operation is not valid. Accepted operations are + and -";
@@ -22,6 +25,7 @@ public class ArithmeticServiceImpl implements ArithmeticService {
 
         // check if values are digit
         if (!Utils.isNumericValue(firstNumber) || !Utils.isNumericValue(secondNumber)) {
+            log.error(notNumericOrValid + "your numbers are: " + firstNumber + ", " + secondNumber);
             throw new BadRequestException(notNumericOrValid);
         }
         // get values
@@ -34,6 +38,7 @@ public class ArithmeticServiceImpl implements ArithmeticService {
             case '-':
                 return fNumber.subtract(sNumber);
             default:
+            log.error(notValidOperationMsg);
                 throw new BadRequestException(notValidOperationMsg);
         }
     }
