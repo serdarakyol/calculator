@@ -19,6 +19,7 @@ public class ArithmeticServiceImpl implements ArithmeticService {
         String firstNumber = customRequest.firstNumber;
         String secondNumber = customRequest.secondNumber;
         Character operation = customRequest.operation;
+
         if (!operations.contains(operation)) {
             // TODO: Return bad request
         }
@@ -27,6 +28,17 @@ public class ArithmeticServiceImpl implements ArithmeticService {
         }
         BigDecimal fNumber = BigDecimal.valueOf(Double.valueOf(firstNumber));
         BigDecimal sNumber = BigDecimal.valueOf(Double.valueOf(secondNumber));
-        return fNumber.add(sNumber);
+        
+        switch (operation) {
+            case '+':
+                return fNumber.add(sNumber);
+            case '-':
+                return fNumber.subtract(sNumber);
+
+            default:
+                // TODO: BAD request
+                break;
+        }
+        return null;
     }
 }
