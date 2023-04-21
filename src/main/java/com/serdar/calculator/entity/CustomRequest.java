@@ -1,5 +1,7 @@
 package com.serdar.calculator.entity;
 
+import java.math.BigDecimal;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CustomRequest {
-    public String firstNumber;
-    public String secondNumber;
+    public BigDecimal firstNumber;
+    public BigDecimal secondNumber;
     public Character operation;
 }
