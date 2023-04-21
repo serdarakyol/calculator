@@ -16,7 +16,7 @@ You can run the application with `mvn spring-boot:run` or alternatively run `./c
 Only docker will be enought to run that application.
 
 # calculator binary file example
-```bash
+```text
 Usage: ./calculator <command>
 <command>:
     help
