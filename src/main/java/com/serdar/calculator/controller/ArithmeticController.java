@@ -1,7 +1,5 @@
 package com.serdar.calculator.controller;
 
-import java.math.BigDecimal;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +20,7 @@ public class ArithmeticController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public BigDecimal process(@RequestBody CustomRequest customRequest) {
+    public String process(@RequestBody CustomRequest customRequest) {
         return arithmeticServiceImpl.calculate(customRequest);
     }
 }
