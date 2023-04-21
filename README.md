@@ -11,6 +11,7 @@ You can run the application with `mvn spring-boot:run` or alternatively run `./c
   "operation": "+"
 }
 ```
+If you would like to see the swagger UI, please go to `http://localhost:8080/docs.html` after run the application.
 
 ## Requirements
 Only docker will be enought to run that application.
