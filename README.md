@@ -2,7 +2,7 @@
 I have tried to follow as much as possible DRY and KISS principles for this project. The reason is not to have boilerplate code and is easy to understand for other developers. It helps a lot to the new developer for this project. I have chosen Java 17 and spring boot 3x for the project because they are one of the most updated programming language and framework. Implemented unit tests up to %79. And included logging for if the suppose client will have some problem. Like this they can directly send me the logging file and I can debug their problem.
 
 # How it works
-There is no security for now. Therefore, after run `./calculator code-run`, you can just send below example request to `http://localhost:8080/api/v1/ArithmeticOperations` and you will have the response.
+You can run the application with `mvn spring-boot:run` or alternatively run `./calculator code-run`. In both case, you can send below example request to `http://localhost:8080/api/v1/ArithmeticOperations` and you will have the response.
 ### Request example
 ```json
 {
