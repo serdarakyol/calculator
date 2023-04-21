@@ -35,10 +35,10 @@ public class ArithmeticServiceImplTest {
         testCustomRequest.setOperation('+');
 
         // When
-        BigDecimal result = arithmeticServiceImpl.calculate(testCustomRequest);
+        String result = arithmeticServiceImpl.calculate(testCustomRequest);
 
         // Then
-        assertEquals("7.246913578", result.toString());
+        assertEquals("7.246913578", result);
     }
 
     @Test
@@ -61,9 +61,9 @@ public class ArithmeticServiceImplTest {
         testCustomRequest.setOperation('-');
 
         // When
-        BigDecimal result = arithmeticServiceImpl.calculate(testCustomRequest);
+        String result = arithmeticServiceImpl.calculate(testCustomRequest);
 
         // Then
-        assertEquals("-1.000000000", result.toString());
+        assertEquals("-1.000000000", result);
     }
 }

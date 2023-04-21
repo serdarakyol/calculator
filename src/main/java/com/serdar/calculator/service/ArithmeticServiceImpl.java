@@ -1,7 +1,5 @@
 package com.serdar.calculator.service;
 
-import java.math.BigDecimal;
-
 import org.springframework.stereotype.Service;
 
 import com.serdar.calculator.entity.CustomRequest;
@@ -16,12 +14,12 @@ public class ArithmeticServiceImpl implements ArithmeticService {
     private final String notValidOperationMsg = "Operation is not valid. Accepted operations are + and -";
 
     @Override
-    public BigDecimal calculate(CustomRequest customRequest) {
+    public String calculate(CustomRequest customRequest) {
         switch (customRequest.operation) {
             case '+':
-                return customRequest.firstNumber.add(customRequest.secondNumber);
+                return customRequest.firstNumber.add(customRequest.secondNumber).toString();
             case '-':
-                return customRequest.firstNumber.subtract(customRequest.secondNumber);
+                return customRequest.firstNumber.subtract(customRequest.secondNumber).toString();
             default:
             log.error(notValidOperationMsg);
                 throw new BadRequestException(notValidOperationMsg);
