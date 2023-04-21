@@ -52,7 +52,7 @@ public class ArithmeticServiceImplTest {
         });
         
         // Then
-        assertEquals(exp.getMessage(), "Operation is not valid. Accepted operations are + and -");
+        assertEquals("Operation is not valid. Accepted operations are + and -", exp.getMessage());
     }
 
     @Test
