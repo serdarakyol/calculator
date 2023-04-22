@@ -11,8 +11,6 @@ concurrency:
 
 jobs:
   default:
-    environment:
-      MAVEN_OPTS: "-Dmaven.repo.local=$HOME/.m2/repository"
     runs-on: ubuntu-latest
     steps:
       - name: Pull repository
