@@ -2,7 +2,13 @@
 I have tried to follow as much as possible DRY and KISS principles for this project. The reason is not to have boilerplate code and is easy to understand for other developers. It helps a lot to the new developer for this project. I have chosen Java 17 and spring boot 3x for the project because they are one of the most updated programming language and framework. Implemented unit tests up to %94. And included logging for if the suppose client will have some problem. Like this they can directly send me the logging file and I can debug their problem.
 
 # How it works
-You can run the application with `mvn spring-boot:run` or alternatively run `./calculator code-run`. In both case, you can send below example request to `http://localhost:8080/api/v1/ArithmeticOperations` and you will have the response.
+Before run the application you should install custom dependencies. To do this, please run below command
+
+```bash
+mvn install:install-file -Dfile=libs/tracer-1.0.0.jar -DgroupId=io.corp.calculator -DartifactId=tracer -Dversion=1.0.0 -Dpackaging=jar
+```
+
+ Then you can run the application with `mvn spring-boot:run` or alternatively run `./calculator code-run`. In both case, you can send below example request to `http://localhost:8080/api/v1/ArithmeticOperations` and you will have the response.
 ### Request example
 ```json
 {
@@ -34,4 +40,7 @@ Usage: ./calculator <command>
  That tool helps to developers to run the application without any problem.
 
  # Extra
- You can find JAR file, report file and unit test coverage file in [here](https://github.com/serdarakyol/calculator/actions/runs/4753422158). It can stay there max 1 day. If you would like to generate these, you can directly run `calculator` helper script.
+ You can find JAR file, report file and unit test coverage file in [here](https://github.com/serdarakyol/calculator/actions/runs/4772866045). It can stay there max 5 day. If you would like to generate these, you can directly run `calculator` helper script.
+
+# SOLID comparetion
+This application doesn't fit with SOLID principles because there are 6 arithmetic operations (addition, subtraction, multiplication, division, exponentiation, and extraction of roots). Therefore, I didn't think that I have to follow SOLID principles. Instate, I followed KISS and DRY principles.
