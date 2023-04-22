@@ -20,8 +20,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Install manual dependency
+        run: mvn install:install-file -Dfile=libs/tracer-1.0.0.jar -DgroupId=io.corp.calculator -DartifactId=tracer -Dversion=1.0.0 -Dpackaging=jar
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn clean install -U
       - name: Run unit tests
         run: mvn test
       - name: Build Jar file
@@ -31,7 +33,7 @@ jobs:
         with:
           name: calculator-0.0.1-SNAPSHOT
           path: target/calculator-0.0.1-SNAPSHOT.jar
-          retention-days: 1
+          retention-days: 5
       - name: Generate report file
         run: ./calculator prepare-report
       - name: Save generated report file
@@ -39,7 +41,7 @@ jobs:
         with:
           name: report-file
           path: dist/calculator-report.tar.gz
-          retention-days: 1
+          retention-days: 5
       - name: Generate coverage report
         run: ./calculator test-coverage-report
       - name: Save coverage report
@@ -47,4 +49,4 @@ jobs:
         with:
           name: unit-test-coverage-report
           path: dist/unit-test-coverage.tar.gz
-          retention-days: 1
+          retention-days: 5

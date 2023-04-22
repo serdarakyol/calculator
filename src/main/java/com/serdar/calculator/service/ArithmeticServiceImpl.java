@@ -1,7 +1,9 @@
 package com.serdar.calculator.service;
 
-import org.springframework.stereotype.Service;
+import java.math.BigDecimal;
 
+import org.springframework.stereotype.Service;
+import io.corp.calculator.TracerImpl;
 import com.serdar.calculator.entity.CustomRequest;
 import com.serdar.calculator.exception.BadRequestException;
 
@@ -15,11 +17,17 @@ public class ArithmeticServiceImpl implements ArithmeticService {
 
     @Override
     public String calculate(CustomRequest customRequest) {
+        TracerImpl tracer = new TracerImpl();
+        BigDecimal result;
         switch (customRequest.operation) {
             case '+':
-                return customRequest.firstNumber.add(customRequest.secondNumber).toString();
+                result = customRequest.firstNumber.add(customRequest.secondNumber);
+                tracer.trace(result);
+                return result.toString();
             case '-':
-                return customRequest.firstNumber.subtract(customRequest.secondNumber).toString();
+                result = customRequest.firstNumber.subtract(customRequest.secondNumber);
+                tracer.trace(result);
+                return result.toString();
             default:
             log.error(notValidOperationMsg);
                 throw new BadRequestException(notValidOperationMsg);
