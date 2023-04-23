@@ -12,5 +12,4 @@ import lombok.ToString;
 public class CustomRequest {
     public BigDecimal firstNumber;
     public BigDecimal secondNumber;
-    public Character operation;
 }
