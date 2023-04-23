@@ -8,13 +8,12 @@ Before run the application you should install custom dependencies. To do this, p
 mvn install:install-file -Dfile=libs/tracer-1.0.0.jar -DgroupId=io.corp.calculator -DartifactId=tracer -Dversion=1.0.0 -Dpackaging=jar
 ```
 
- Then you can run the application with `mvn spring-boot:run` or alternatively run `./calculator code-run`. In both case, you can send below example request to `http://localhost:8080/api/v1/ArithmeticOperations` and you will have the response.
+ Then you can run the application with `mvn spring-boot:run` or alternatively run `./calculator code-run`. In both case, you can send below example request to `http://localhost:8080/api/v1/ArithmeticOperations/sum` or `http://localhost:8080/api/v1/ArithmeticOperations/subtract` (depending your wishes) and you will have the response.
 ### Request example
 ```json
 {
   "firstNumber": "5.1233123123123123",
   "secondNumber": "6.1231231231231123",
-  "operation": "+"
 }
 ```
 If you would like to see the swagger UI, please go to `http://localhost:8080/docs.html` after run the application.
