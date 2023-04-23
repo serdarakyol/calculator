@@ -8,19 +8,29 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.http.HttpStatus;
 
 import com.serdar.calculator.entity.CustomRequest;
-import com.serdar.calculator.service.ArithmeticServiceImpl;
-import lombok.AllArgsConstructor;
+import com.serdar.calculator.service.ServiceOperation;
+
+import io.corp.calculator.TracerImpl;
 
 @RestController
-@AllArgsConstructor
 @RequestMapping(path = "api/v1/ArithmeticOperations")
 public class ArithmeticController {
 
-    public final ArithmeticServiceImpl arithmeticServiceImpl;
+    TracerImpl tracer = new TracerImpl();
 
-    @PostMapping
+    @PostMapping(path = "sum")
     @ResponseStatus(HttpStatus.OK)
-    public String process(@RequestBody CustomRequest customRequest) {
-        return arithmeticServiceImpl.calculate(customRequest);
+    public String sum(@RequestBody CustomRequest customRequest) {
+        String result = ServiceOperation.getInstance(ServiceOperation.OperationType.SUM).calculate(customRequest);
+        tracer.trace(result);
+        return result;
+    }
+
+    @PostMapping(path = "subtract")
+    @ResponseStatus(HttpStatus.OK)
+    public String subtract(@RequestBody CustomRequest customRequest) {
+        String result = ServiceOperation.getInstance(ServiceOperation.OperationType.SUBTRACT).calculate(customRequest);
+        tracer.trace(result);
+        return result;
     }
 }

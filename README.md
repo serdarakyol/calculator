@@ -1,5 +1,5 @@
 # Calculator API
-I have tried to follow as much as possible DRY and KISS principles for this project. The reason is not to have boilerplate code and is easy to understand for other developers. It helps a lot to the new developer for this project. I have chosen Java 17 and spring boot 3x for the project because they are one of the most updated programming language and framework. Implemented unit tests up to %94. And included logging for if the suppose client will have some problem. Like this they can directly send me the logging file and I can debug their problem.
+I have tried to follow as much as possible DRY and KISS and SOLID principles for this project. The reason is not to have boilerplate code and is easy to understand for other developers. It helps a lot to the new developer for this project. I have chosen Java 17 and spring boot 3x for the project because they are one of the most updated programming language and framework. Implemented unit tests up to %86. And included logging for if the suppose client will have some problem. Like this they can directly send me the logging file and I can debug their problem.
 
 # How it works
 Before run the application you should install custom dependencies. To do this, please run below command
@@ -42,5 +42,9 @@ Usage: ./calculator <command>
  # Extra
  You can find JAR file, report file and unit test coverage file in [here](https://github.com/serdarakyol/calculator/actions/runs/4772866045). It can stay there max 5 day. If you would like to generate these, you can directly run `calculator` helper script.
 
-# SOLID comparetion
-This application doesn't fit with SOLID principles because there are 6 arithmetic operations (addition, subtraction, multiplication, division, exponentiation, and extraction of roots). Therefore, I didn't think that I have to follow SOLID principles. Instate, I followed KISS and DRY principles.
+# How to implement new feature to API (SOLID comparetion)
+1. Each class has a single responsibility like sum and subtract classes. Not all in one
+2. If in the future will need to change some operations, that would be quite easy because each task is separately defined.
+3. All classes are separated into small pieces to implement easily from the base class. Like this, each class takes inheritance from the parent class and uses that
+4. The interface has not been used unnecessarily. I needed a calculation method in an interface and implemented that interface to sum and subtraction. 
+5. Sum and subtraction are not depended on one another

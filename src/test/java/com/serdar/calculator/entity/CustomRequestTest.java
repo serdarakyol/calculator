@@ -16,7 +16,6 @@ public class CustomRequestTest {
         customRequest = new CustomRequest();
         customRequest.setFirstNumber(new BigDecimal("3.123456789"));
         customRequest.setSecondNumber(new BigDecimal("4.123456789"));
-        customRequest.setOperation('+');
     }
 
     @Test
@@ -24,14 +23,12 @@ public class CustomRequestTest {
         // Given
         customRequest.setFirstNumber(new BigDecimal("5.123456789"));
         customRequest.setSecondNumber(new BigDecimal("10.123456789"));
-        customRequest.setOperation('-');
 
         // When, Then
         assertEquals("5.123456789", customRequest.getFirstNumber().toString());
         assertEquals("10.123456789", customRequest.getSecondNumber().toString());
-        assertEquals('-', customRequest.getOperation());
         assertEquals(
-                "CustomRequest(firstNumber=5.123456789, secondNumber=10.123456789, operation=-)",
+                "CustomRequest(firstNumber=5.123456789, secondNumber=10.123456789)",
                 customRequest.toString());
     }
 }
