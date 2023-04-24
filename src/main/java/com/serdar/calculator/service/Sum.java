@@ -8,5 +8,4 @@ class Sum implements ArithmeticService {
     public String calculate(CustomRequest customRequest) {
         return customRequest.firstNumber.add(customRequest.secondNumber).toString();
     }
-    
 }

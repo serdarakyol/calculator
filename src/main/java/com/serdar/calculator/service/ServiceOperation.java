@@ -14,9 +14,4 @@ public class ServiceOperation {
                 throw new BadRequestException(notValidOperationMsg);
         }
     }
-
-    public enum OperationType {
-        SUM,
-        SUBTRACT;
-    }
 }
