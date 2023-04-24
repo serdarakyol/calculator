@@ -8,5 +8,4 @@ class Subtract implements ArithmeticService {
     public String calculate(CustomRequest customRequest) {
         return customRequest.firstNumber.subtract(customRequest.secondNumber).toString();
     }
-    
 }
